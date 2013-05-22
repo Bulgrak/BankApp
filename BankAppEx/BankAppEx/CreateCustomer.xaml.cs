@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAppEx.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,20 @@ using System.Windows.Shapes;
 namespace BankAppEx
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CreateCustomer.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreateCustomer : UserControl
     {
-        public MainWindow()
+        private CustomerViewModel customerViewModel;
+        public CreateCustomer()
         {
             InitializeComponent();
+            customerViewModel = CustomerViewModel.Instance;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            customerViewModel.AddCustomer(txtCustomerNo.Text);
         }
     }
 }
