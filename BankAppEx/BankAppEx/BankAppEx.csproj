@@ -67,6 +67,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
