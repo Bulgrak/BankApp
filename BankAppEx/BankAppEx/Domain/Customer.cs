@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankAppEx.Model
 {
-    class Customer
+    public class Customer
     {
         public string CustomerNo { get; set; }
         public ObservableCollection<Account> Accounts { get; set; }

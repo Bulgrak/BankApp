@@ -26,6 +26,7 @@ namespace BankAppEx
         {
             InitializeComponent();
             customerViewModel = CustomerViewModel.Instance;
+            DataContext = customerViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

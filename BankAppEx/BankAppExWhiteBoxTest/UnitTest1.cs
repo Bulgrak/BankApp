@@ -7,8 +7,8 @@ namespace BankAppExTestProject
     [TestClass]
     public class UnitTest1
     {
-        //White box testing
-
+        //White box tests
+        #region White box tests
         [TestMethod]
         public void TestWithdrawW1()
         {
@@ -98,8 +98,10 @@ namespace BankAppExTestProject
             double actual = a.Balance;
             Assert.AreEqual(expected, actual, 0);
         }
+        #endregion
 
         //Black box tests
+        #region Black box Tests
         [TestMethod]
         public void TestDepositdrawB1()
         {
@@ -116,7 +118,6 @@ namespace BankAppExTestProject
         [TestMethod]
         public void TestDepositB2()
         {
-
             long accountNo = 123;
             double balance = 1000.00;
             double interestRate = 0.5;
@@ -130,13 +131,12 @@ namespace BankAppExTestProject
         [TestMethod]
         public void TestWithdrawB3()
         {
-
             long accountNo = 123;
             double balance = 1000.00;
             double interestRate = 0.5;
             Account a = new Account(accountNo, balance, interestRate);
-            a.Withdraw(5520);
-            double expected = 6520;
+            a.Withdraw(250);
+            double expected = 750;
             double actual = a.Balance;
             Assert.AreEqual(expected, actual, 0);
         }
@@ -144,15 +144,28 @@ namespace BankAppExTestProject
         [TestMethod]
         public void TestWithdrawB4()
         {
-
             long accountNo = 123;
             double balance = 1000.00;
             double interestRate = 0.5;
             Account a = new Account(accountNo, balance, interestRate);
-            a.Withdraw(5520);
-            double expected = 6520;
+            a.Withdraw(102);
+            double expected = 898;
             double actual = a.Balance;
             Assert.AreEqual(expected, actual, 0);
         }
+
+        [TestMethod]
+        public void TestSetInterestRateB5()
+        {
+            long accountNo = 123;
+            double balance = 1000.00;
+            double interestRate = 0.5;
+            Account a = new Account(accountNo, balance, interestRate);
+            a.AddInterestRate(0.5);
+            double expected = 1;
+            double actual = a.InterestRate;
+            Assert.AreEqual(expected, actual, 0);
+        }
+        #endregion
     }
 }

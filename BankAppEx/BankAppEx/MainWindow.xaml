@@ -6,6 +6,6 @@
     <Grid>
         <local:CreateAccount HorizontalAlignment="Left" Margin="31,35,0,0" VerticalAlignment="Top"/>
         <local:CreateCustomer HorizontalAlignment="Left" Margin="31,194,0,0" VerticalAlignment="Top"/>
-        <local:WithdrawDeposit HorizontalAlignment="Left" Margin="387,35,0,0" VerticalAlignment="Top" Height="185" Width="254"/>
+        <local:WithdrawDeposit HorizontalAlignment="Left" Margin="387,35,0,0" VerticalAlignment="Top" Height="245" Width="287"/>
     </Grid>
 </Window>

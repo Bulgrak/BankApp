@@ -5,10 +5,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace BankAppEx.ViewModel
 {
-    class CustomerViewModel
+    public class CustomerViewModel 
     {
         private static CustomerViewModel instance;
         public ObservableCollection<Customer> Customers { get; set; }
@@ -16,7 +17,6 @@ namespace BankAppEx.ViewModel
         public CustomerViewModel()
         {
             Customers = new ObservableCollection<Customer>();
-            
         }
 
         public static CustomerViewModel Instance
@@ -43,5 +43,9 @@ namespace BankAppEx.ViewModel
         {
             customer.Accounts.Remove(account);
         }
+
+
+        
     }
+
 }

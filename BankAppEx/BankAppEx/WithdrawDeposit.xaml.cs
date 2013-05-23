@@ -28,7 +28,8 @@ namespace BankAppEx
         {
             InitializeComponent();
             customerViewModel = CustomerViewModel.Instance;
-            cmbCustomerNo.ItemsSource = customerViewModel.Customers;
+            DataContext = customerViewModel;
+            //cmbCustomerNo.ItemsSource = customerViewModel.Customers;
         }
 
         private void cmbCustomerNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -50,6 +51,63 @@ namespace BankAppEx
             }
             else{
                 cmbAccount.SelectedIndex = -1;
+            }
+        }
+
+        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                Account a = (Account)cmbAccount.SelectedItem;
+                a.Withdraw(Convert.ToDouble(txtWithdraw.Text));
+                txtbCurrentBalance.Text = Convert.ToString(a.Balance);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Account a = (Account)cmbAccount.SelectedItem;
+                a.Deposit(Convert.ToDouble(txtDeposit.Text));
+                txtbCurrentBalance.Text = Convert.ToString(a.Balance);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSetInterestRate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Account a = (Account)cmbAccount.SelectedItem;
+                a.InterestRate = Convert.ToDouble(txtSetInterestRate.Text);
+                txtbInterestRate.Text = Convert.ToString(a.InterestRate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAddInterestRate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Account a = (Account)cmbAccount.SelectedItem;
+                a.AddInterestRate(Convert.ToDouble(txtAddInterestRate.Text));
+                txtbInterestRate.Text = Convert.ToString(a.InterestRate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
