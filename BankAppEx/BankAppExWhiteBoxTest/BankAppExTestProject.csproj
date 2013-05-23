@@ -6,8 +6,8 @@
     <ProjectGuid>{10262663-993D-4F02-93A8-C59DA93B774A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BankAppExWhiteBoxTest</RootNamespace>
-    <AssemblyName>BankAppExWhiteBoxTest</AssemblyName>
+    <RootNamespace>BankAppExTestProject</RootNamespace>
+    <AssemblyName>BankAppExTestProject</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BankAppEx\BankAppEx.csproj">
+      <Project>{8f0a37ec-ce45-4bf1-ac28-8ff8e5fcd5cd}</Project>
+      <Name>BankAppEx</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

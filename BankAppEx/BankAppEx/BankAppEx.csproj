@@ -55,6 +55,9 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="WithdrawDeposit.xaml.cs">
+      <DependentUpon>WithdrawDeposit.xaml</DependentUpon>
+    </Compile>
     <Page Include="CreateAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +84,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WithdrawDeposit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Account.cs" />

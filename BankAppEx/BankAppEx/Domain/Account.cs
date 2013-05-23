@@ -7,41 +7,64 @@ using System.Threading.Tasks;
 
 namespace BankAppEx.Model
 {
-    class Account
+    public class InvalidAmountOrBalanceException : ApplicationException
     {
+    }
+
+    public class InvalidIncrementToInterestRate : ApplicationException
+    {
+    }
+
+    public class Account
+    {
+
         public long AccountNo { get; set; }
         public double Balance { get; set; }
         public double InterestRate { get; set; }
 
-        public Account(double balance, double interest)
+
+
+        public Account(long accountNo, double balance, double interestRate)
         {
+            AccountNo = accountNo;
+            Balance = balance;
+            InterestRate = interestRate;
         }
 
-        public bool WithDraw(double amount)
+        public void Withdraw(double amount)
         {
-            bool ok = false;
-            if (Balance >= amount)
+            if (Balance >= amount && amount > 0)
             {
                 Balance -= amount;
-                ok = true;
             }
-            return ok;
+            else
+            {
+                throw new InvalidAmountOrBalanceException();
+            }
         }
 
-        public bool Deposit(double amount)
+        public void Deposit(double amount)
         {
-            bool ok = false;
             if (amount > 0)
             {
                 Balance += amount;
-                ok = true;
             }
-            return ok;
+            else
+            {
+                throw new InvalidAmountOrBalanceException();
+            }
         }
 
         public void AddInterestRate(double interestRate)
         {
-            InterestRate += interestRate;
+            if (interestRate > 0)
+            {
+                InterestRate += interestRate;
+            }
+            else
+            {
+                throw new InvalidIncrementToInterestRate();            
+            }
         }
     }
 }

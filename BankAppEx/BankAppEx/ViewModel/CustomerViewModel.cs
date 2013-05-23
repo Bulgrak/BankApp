@@ -36,7 +36,12 @@ namespace BankAppEx.ViewModel
 
         public void AddAccount(Customer customer, long accountNo, double balance, double interestRate)
         {
-            customer.Accounts.Add(new Account(balance, interestRate));
+            customer.Accounts.Add(new Account(accountNo, balance, interestRate));
+        }
+
+        public void RemoveAccount(Customer customer, Account account)
+        {
+            customer.Accounts.Remove(account);
         }
     }
 }

@@ -30,7 +30,15 @@ namespace BankAppEx
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            customerViewModel.AddCustomer(txtCustomerNo.Text);
+            try
+            {
+                customerViewModel.AddCustomer(txtCustomerNo.Text);
+                txtCustomerNo.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
