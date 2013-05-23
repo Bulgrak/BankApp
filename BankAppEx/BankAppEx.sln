@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppEx", "BankAppEx\BankAppEx.csproj", "{8F0A37EC-CE45-4BF1-AC28-8FF8E5FCD5CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppExTestProject", "BankAppExWhiteBoxTest\BankAppExTestProject.csproj", "{10262663-993D-4F02-93A8-C59DA93B774A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppExTestProject", "BankAppExTestProject\BankAppExTestProject.csproj", "{10262663-993D-4F02-93A8-C59DA93B774A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
