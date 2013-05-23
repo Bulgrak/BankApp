@@ -8,12 +8,12 @@
     <Grid>
         <Label Content="Select CustomerNo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Select Account" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbCustomerNo" HorizontalAlignment="Left" Margin="127,14,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Customers}" SelectionChanged="cmbCustomerNo_SelectionChanged" DisplayMemberPath="CustomerNo"/>
-        <ComboBox x:Name="cmbAccount" HorizontalAlignment="Left" Margin="127,41,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="AccountNo" SelectionChanged="cmbAccount_SelectionChanged"/>
+        <ComboBox x:Name="cmbCustomerNo" HorizontalAlignment="Left" Margin="127,14,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Customers}" SelectedItem="{Binding Path=SelectedCustomer, FallbackValue=-1}" DisplayMemberPath="CustomerNo"/>
+        <ComboBox x:Name="cmbAccount" HorizontalAlignment="Left" Margin="127,41,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ElementName=cmbCustomerNo, Path=SelectedItem.Accounts}" SelectedItem="{Binding Path=SelectedAccount}" DisplayMemberPath="AccountNo" />
         <Label Content="Current Balance:" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
         <Label Content="Interest Rate" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="txtbCurrentBalance" Text="0" HorizontalAlignment="Left" Margin="127,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="txtbInterestRate" Text="0" HorizontalAlignment="Left" Margin="127,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtbCurrentBalance" Text="{Binding ElementName=cmbAccount, Path=SelectedItem.Balance, TargetNullValue=0,FallbackValue=0}" HorizontalAlignment="Left" Margin="127,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtbInterestRate" Text="{Binding ElementName=cmbAccount, Path=SelectedItem.InterestRate, TargetNullValue=0,FallbackValue=0}" HorizontalAlignment="Left" Margin="127,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button x:Name="btnWithdraw" Content="Withdraw" HorizontalAlignment="Left" Margin="172,128,0,0" VerticalAlignment="Top" Width="99" Click="btnWithdraw_Click"/>
         <Button x:Name="btnDeposit" Content="Deposit" HorizontalAlignment="Left" Margin="172,153,0,0" VerticalAlignment="Top" Width="99" Click="btnDeposit_Click"/>
         <TextBox x:Name="txtWithdraw" HorizontalAlignment="Left" Height="23" Margin="10,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>

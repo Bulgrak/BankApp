@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,49 @@ using System.Windows.Input;
 
 namespace BankAppEx.ViewModel
 {
-    public class CustomerViewModel 
+    public class CustomerViewModel : INotifyPropertyChanged
     {
         private static CustomerViewModel instance;
+        private ObservableCollection<Account> accounts;
         public ObservableCollection<Customer> Customers { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        private Customer selectedCustomer;
+        public Customer SelectedCustomer
+        {
+            get { return selectedCustomer; }
+            set
+            {
+                if (selectedCustomer == value)
+                    return;
+                selectedCustomer = value;
+                //cmbAccount.ItemsSource = selectedItem.Accounts;
+                // Do logic on selection change.
+            }
+        }
+
+        private Account selectedAccount;
+        public Account SelectedAccount
+        {
+            get { return selectedAccount; }
+            set
+            {
+                if (selectedAccount == value)
+                    return;
+                selectedAccount = value;
+                //cmbAccount.ItemsSource = selectedItem.Accounts;
+                // Do logic on selection change.
+            }
+        }
+        
 
         public CustomerViewModel()
         {
@@ -43,9 +83,6 @@ namespace BankAppEx.ViewModel
         {
             customer.Accounts.Remove(account);
         }
-
-
-        
     }
 
 }

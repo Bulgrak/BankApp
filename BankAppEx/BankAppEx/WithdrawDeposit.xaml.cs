@@ -61,7 +61,8 @@ namespace BankAppEx
 
                 Account a = (Account)cmbAccount.SelectedItem;
                 a.Withdraw(Convert.ToDouble(txtWithdraw.Text));
-                txtbCurrentBalance.Text = Convert.ToString(a.Balance);
+                //customerViewModel.Withdraw(a, Convert.ToDouble(txtWithdraw.Text));
+                //txtbCurrentBalance.Text = Convert.ToString(a.Balance);
             }
             catch (Exception ex)
             {
@@ -89,7 +90,7 @@ namespace BankAppEx
             {
                 Account a = (Account)cmbAccount.SelectedItem;
                 a.InterestRate = Convert.ToDouble(txtSetInterestRate.Text);
-                txtbInterestRate.Text = Convert.ToString(a.InterestRate);
+                //txtbInterestRate.Text = Convert.ToString(a.InterestRate);
             }
             catch (Exception ex)
             {
@@ -103,7 +104,7 @@ namespace BankAppEx
             {
                 Account a = (Account)cmbAccount.SelectedItem;
                 a.AddInterestRate(Convert.ToDouble(txtAddInterestRate.Text));
-                txtbInterestRate.Text = Convert.ToString(a.InterestRate);
+                //txtbInterestRate.Text = Convert.ToString(a.InterestRate);
             }
             catch (Exception ex)
             {

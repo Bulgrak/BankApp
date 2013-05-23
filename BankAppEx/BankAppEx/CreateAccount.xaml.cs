@@ -34,7 +34,7 @@ namespace BankAppEx
         private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
             Customer c = (Customer)cmbCustomers.SelectedItem;
-            customerViewModel.AddAccount(c, 2, Convert.ToDouble(txtBalance.Text), Convert.ToDouble(txtInterestRate.Text));
+            customerViewModel.AddAccount(c, Convert.ToInt32(txtAccountNo.Text), Convert.ToDouble(txtBalance.Text), Convert.ToDouble(txtInterestRate.Text));
             txtAccountNo.Text = "";
             txtBalance.Text = "";
             txtInterestRate.Text = "";

@@ -15,14 +15,23 @@ namespace BankAppEx.Model
     {
     }
 
-    public class Account
+    public class Account : INotifyPropertyChanged
     {
 
         public long AccountNo { get; set; }
         public double Balance { get; set; }
-        public double InterestRate { get; set; }
+        private double interestRate;
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
         public Account(long accountNo, double balance, double interestRate)
         {
@@ -31,11 +40,20 @@ namespace BankAppEx.Model
             InterestRate = interestRate;
         }
 
+        public double InterestRate
+        {
+            get { return interestRate; }
+            set { interestRate = value;
+            OnPropertyChanged("InterestRate");
+            }
+        }
+
         public void Withdraw(double amount)
         {
             if (Balance >= amount && amount > 0)
             {
                 Balance -= amount;
+                OnPropertyChanged("Balance");
             }
             else
             {
@@ -48,6 +66,7 @@ namespace BankAppEx.Model
             if (amount > 0)
             {
                 Balance += amount;
+                OnPropertyChanged("Balance");
             }
             else
             {
@@ -60,6 +79,7 @@ namespace BankAppEx.Model
             if (interestRate > 0)
             {
                 InterestRate += interestRate;
+                OnPropertyChanged("InterestRate");
             }
             else
             {
