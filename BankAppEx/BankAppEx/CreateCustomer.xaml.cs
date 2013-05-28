@@ -21,19 +21,19 @@ namespace BankAppEx
     /// </summary>
     public partial class CreateCustomer : UserControl
     {
-        private CustomerViewModel customerViewModel;
+        private WithdrawDepositViewModel withdrawDepositViewModel;
         public CreateCustomer()
         {
             InitializeComponent();
-            customerViewModel = CustomerViewModel.Instance;
-            DataContext = customerViewModel;
+            withdrawDepositViewModel = WithdrawDepositViewModel.Instance;
+            DataContext = withdrawDepositViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                customerViewModel.AddCustomer(txtCustomerNo.Text);
+                withdrawDepositViewModel.AddCustomer(txtCustomerNo.Text);
                 txtCustomerNo.Text = "";
             }
             catch (Exception ex)

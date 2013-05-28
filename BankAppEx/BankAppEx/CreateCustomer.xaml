@@ -3,11 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:BankAppEx.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="68" d:DesignWidth="229">
+    <UserControl.DataContext>
+        <my:WithdrawDepositViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Label Content="CustomerNo:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCreateCustomer" Content="Create" HorizontalAlignment="Left" Margin="146,41,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="txtCustomerNo" HorizontalAlignment="Left" Height="23" Margin="90,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <Button x:Name="btnCreateCustomer" Content="Create" HorizontalAlignment="Left" Margin="146,41,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CreateCustomerCommand}" CommandParameter="{Binding ElementName=txtCustomerNo, Path=Text}"/>
+        <TextBox x:Name="txtCustomerNo" Text="{Binding CustomerNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="90,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
     </Grid>
 </UserControl>

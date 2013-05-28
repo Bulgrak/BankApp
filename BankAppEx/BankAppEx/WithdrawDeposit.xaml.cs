@@ -22,94 +22,94 @@ namespace BankAppEx
     /// </summary>
     public partial class WithdrawDeposit : UserControl
     {
-        private CustomerViewModel customerViewModel;
+        private WithdrawDepositViewModel withdrawDepositViewModel;
 
         public WithdrawDeposit()
         {
             InitializeComponent();
-            customerViewModel = CustomerViewModel.Instance;
-            DataContext = customerViewModel;
+            withdrawDepositViewModel = WithdrawDepositViewModel.Instance;
+            DataContext = withdrawDepositViewModel;
             //cmbCustomerNo.ItemsSource = customerViewModel.Customers;
         }
 
-        private void cmbCustomerNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Customer c = (Customer)cmbCustomerNo.SelectedItem;
-            cmbAccount.ItemsSource = c.Accounts;
-            cmbAccount.SelectedIndex = -1;
-            txtbCurrentBalance.Text = "";
-            txtbInterestRate.Text = "";
-        }
+        //private void cmbCustomerNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    Customer c = (Customer)cmbCustomerNo.SelectedItem;
+        //    cmbAccount.ItemsSource = c.Accounts;
+        //    cmbAccount.SelectedIndex = -1;
+        //    txtbCurrentBalance.Text = "";
+        //    txtbInterestRate.Text = "";
+        //}
 
-        private void cmbAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Account a = (Account)cmbAccount.SelectedItem;
-            if (a != null)
-            {
-                txtbCurrentBalance.Text = Convert.ToString(a.Balance);
-                txtbInterestRate.Text = Convert.ToString(a.InterestRate);
-            }
-            else{
-                cmbAccount.SelectedIndex = -1;
-            }
-        }
+        //private void cmbAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    Account a = (Account)cmbAccount.SelectedItem;
+        //    if (a != null)
+        //    {
+        //        txtbCurrentBalance.Text = Convert.ToString(a.Balance);
+        //        txtbInterestRate.Text = Convert.ToString(a.InterestRate);
+        //    }
+        //    else{
+        //        cmbAccount.SelectedIndex = -1;
+        //    }
+        //}
 
-        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
+        //private void btnWithdraw_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
 
-                Account a = (Account)cmbAccount.SelectedItem;
-                a.Withdraw(Convert.ToDouble(txtWithdraw.Text));
-                //customerViewModel.Withdraw(a, Convert.ToDouble(txtWithdraw.Text));
-                //txtbCurrentBalance.Text = Convert.ToString(a.Balance);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //        Account a = (Account)cmbAccount.SelectedItem;
+        //        a.Withdraw(Convert.ToDouble(txtWithdraw.Text));
+        //        //customerViewModel.Withdraw(a, Convert.ToDouble(txtWithdraw.Text));
+        //        //txtbCurrentBalance.Text = Convert.ToString(a.Balance);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void btnDeposit_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Account a = (Account)cmbAccount.SelectedItem;
-                a.Deposit(Convert.ToDouble(txtDeposit.Text));
-                txtbCurrentBalance.Text = Convert.ToString(a.Balance);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        Account a = (Account)cmbAccount.SelectedItem;
+        //        a.Deposit(Convert.ToDouble(txtDeposit.Text));
+        //        txtbCurrentBalance.Text = Convert.ToString(a.Balance);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void btnSetInterestRate_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Account a = (Account)cmbAccount.SelectedItem;
-                a.InterestRate = Convert.ToDouble(txtSetInterestRate.Text);
-                //txtbInterestRate.Text = Convert.ToString(a.InterestRate);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void btnSetInterestRate_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        Account a = (Account)cmbAccount.SelectedItem;
+        //        a.InterestRate = Convert.ToDouble(txtSetInterestRate.Text);
+        //        //txtbInterestRate.Text = Convert.ToString(a.InterestRate);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void btnAddInterestRate_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Account a = (Account)cmbAccount.SelectedItem;
-                a.AddInterestRate(Convert.ToDouble(txtAddInterestRate.Text));
-                //txtbInterestRate.Text = Convert.ToString(a.InterestRate);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void btnAddInterestRate_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        Account a = (Account)cmbAccount.SelectedItem;
+        //        a.AddInterestRate(Convert.ToDouble(txtAddInterestRate.Text));
+        //        //txtbInterestRate.Text = Convert.ToString(a.InterestRate);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
     }
 }

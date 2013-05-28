@@ -22,22 +22,22 @@ namespace BankAppEx
     /// </summary>
     public partial class CreateAccount : UserControl
     {
-        private CustomerViewModel customerViewModel;
+        private WithdrawDepositViewModel withdrawDepositViewModel;
         public CreateAccount()
         {
             InitializeComponent();
-            customerViewModel = CustomerViewModel.Instance;
-            DataContext = customerViewModel;
-            //cmbCustomers.ItemsSource = customerViewModel.Customers;
+            withdrawDepositViewModel = WithdrawDepositViewModel.Instance;
+            DataContext = withdrawDepositViewModel;
+            //cmbCustomers.ItemsSource = withdrawDepositViewModel.Customers;
         }
 
-        private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
-        {
-            Customer c = (Customer)cmbCustomers.SelectedItem;
-            customerViewModel.AddAccount(c, Convert.ToInt32(txtAccountNo.Text), Convert.ToDouble(txtBalance.Text), Convert.ToDouble(txtInterestRate.Text));
-            txtAccountNo.Text = "";
-            txtBalance.Text = "";
-            txtInterestRate.Text = "";
-        }
+        //private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Customer c = (Customer)cmbCustomers.SelectedItem;
+        //    customerViewModel.AddAccount(c, Convert.ToInt32(txtAccountNo.Text), Convert.ToDouble(txtBalance.Text), Convert.ToDouble(txtInterestRate.Text));
+        //    txtAccountNo.Text = "";
+        //    txtBalance.Text = "";
+        //    txtInterestRate.Text = "";
+        //}
     }
 }
