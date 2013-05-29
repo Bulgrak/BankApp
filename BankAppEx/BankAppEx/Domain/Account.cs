@@ -15,6 +15,10 @@ namespace BankAppEx.Model
     {
     }
 
+    public class InvalidInterestRate : ApplicationException
+    {
+    }
+
     public class Account : INotifyPropertyChanged
     {
 
@@ -53,8 +57,16 @@ namespace BankAppEx.Model
         public double InterestRate
         {
             get { return interestRate; }
-            set { interestRate = value;
-            OnPropertyChanged("InterestRate");
+            set {
+                if (value >= 0)
+                {
+                    interestRate = value;
+                    OnPropertyChanged("InterestRate");
+                }
+                else
+                {
+                    throw new InvalidInterestRate();
+                }
             }
         }
 
@@ -86,7 +98,7 @@ namespace BankAppEx.Model
 
         public void AddInterestRate()
         {
-                Balance += (Balance/100)*InterestRate;
+                Balance += Balance*InterestRate;
                 //OnPropertyChanged("Balance");
         }
     }

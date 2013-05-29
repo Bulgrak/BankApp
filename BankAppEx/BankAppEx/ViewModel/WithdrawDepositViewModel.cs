@@ -13,7 +13,7 @@ namespace BankAppEx.ViewModel
     public class WithdrawDepositViewModel : INotifyPropertyChanged
     {
         private static WithdrawDepositViewModel instance;
-        private ObservableCollection<Account> accounts;
+        //private ObservableCollection<Account> accounts;
         public ObservableCollection<Customer> Customers { get; set; }
         private string accountNo;
         private string balance;

@@ -19,7 +19,7 @@ namespace BankAppExTestProject
             a.Withdraw(1);
             double expected = 999;
             double actual = a.Balance;
-            Assert.AreEqual(expected, actual, 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace BankAppExTestProject
             a.Withdraw(1000);
             double expected = 0;
             double actual = a.Balance;
-            Assert.AreEqual(expected, actual, 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace BankAppExTestProject
         }
 
         [TestMethod]
-        public void TestDepositW1()
+        public void TestDepositW5()
         {
             long accountNo = 123;
             double balance = 1000.00;
@@ -87,7 +87,7 @@ namespace BankAppExTestProject
         }
 
         [TestMethod]
-        public void TestDepositW2()
+        public void TestDepositW6()
         {
             long accountNo = 123;
             double balance = 1000.00;
@@ -96,13 +96,36 @@ namespace BankAppExTestProject
             a.Deposit(1000);
             double expected = 2000;
             double actual = a.Balance;
-            Assert.AreEqual(expected, actual, 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void TestDespositI1()
+        public void TestAddInterestRateW7()
         {
+            long accountNo = 123;
+            double balance = 1000.00;
+            double interestRate = 0.05;
+            Account a = new Account(accountNo, balance, interestRate);
+            a.AddInterestRate();
+            double expected = 1050;
+            double actual = a.Balance;
+            Assert.AreEqual(expected, actual);
+        }
 
+        [TestMethod]
+        public void TestSetInterestRateW8()
+        {
+            long accountNo = 123;
+            double balance = 1000.00;
+            double interestRate = -0.01;
+            try
+            {
+                Account a = new Account(accountNo, balance, interestRate);
+                Assert.Fail("Should throw an exception");
+            }
+            catch (InvalidInterestRate)
+            {
+            }
         }
         #endregion
 
@@ -118,7 +141,7 @@ namespace BankAppExTestProject
             a.Deposit(3520);
             double expected = 4520;
             double actual = a.Balance;
-            Assert.AreEqual(expected, actual, 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -131,7 +154,7 @@ namespace BankAppExTestProject
             a.Deposit(5520);
             double expected = 6520;
             double actual = a.Balance;
-            Assert.AreEqual(expected, actual, 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -144,7 +167,7 @@ namespace BankAppExTestProject
             a.Withdraw(250);
             double expected = 750;
             double actual = a.Balance;
-            Assert.AreEqual(expected, actual, 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -157,7 +180,7 @@ namespace BankAppExTestProject
             a.Withdraw(102);
             double expected = 898;
             double actual = a.Balance;
-            Assert.AreEqual(expected, actual, 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -165,12 +188,12 @@ namespace BankAppExTestProject
         {
             long accountNo = 123;
             double balance = 1000.00;
-            double interestRate = 0.5;
+            double interestRate = 0.0015;
             Account a = new Account(accountNo, balance, interestRate);
             a.AddInterestRate();
-            double expected = 1;
-            double actual = a.InterestRate;
-            Assert.AreEqual(expected, actual, 0);
+            double expected = 1001.5;
+            double actual = a.Balance;
+            Assert.AreEqual(expected, actual);
         }
         #endregion
     }
