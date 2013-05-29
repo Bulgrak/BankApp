@@ -107,7 +107,7 @@ namespace BankAppExTestProject
             double interestRate = 0.05;
             Account a = new Account(accountNo, balance, interestRate);
             a.AddInterestRate();
-            double expected = 1050;
+            double expected = 1000.5;
             double actual = a.Balance;
             Assert.AreEqual(expected, actual);
         }
@@ -205,10 +205,10 @@ namespace BankAppExTestProject
         {
             long accountNo = 123;
             double balance = 1000.00;
-            double interestRate = 0.0015;
+            double interestRate = 1;
             Account a = new Account(accountNo, balance, interestRate);
             a.AddInterestRate();
-            double expected = 1001.5;
+            double expected = 1010;
             double actual = a.Balance;
             Assert.AreEqual(expected, actual);
         }

@@ -98,7 +98,7 @@ namespace BankAppEx.Model
 
         public void AddInterestRate()
         {
-                Balance += Balance*InterestRate;
+                Balance += (Balance/100)*InterestRate;
                 //OnPropertyChanged("Balance");
         }
     }
