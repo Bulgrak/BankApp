@@ -127,6 +127,23 @@ namespace BankAppExTestProject
             {
             }
         }
+
+        [TestMethod]
+        public void TestSetInterestRateW9()
+        {
+            long accountNo = 123;
+            double balance = 1000.00;
+            double interestRate = 5;
+            try
+            {
+                Account a = new Account(accountNo, balance, interestRate);
+                a.InterestRate = -0.1;
+                Assert.Fail("Should throw an exception");
+            }
+            catch (InvalidInterestRate)
+            {
+            }
+        }
         #endregion
 
         //Black box tests
