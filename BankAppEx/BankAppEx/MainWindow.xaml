@@ -4,8 +4,14 @@
         xmlns:local="clr-namespace:BankAppEx" x:Class="BankAppEx.MainWindow"
         Title="MainWindow" Height="513.2" Width="718">
     <Grid>
-        <local:CreateAccount HorizontalAlignment="Left" Margin="31,35,0,0" VerticalAlignment="Top"/>
-        <local:CreateCustomer HorizontalAlignment="Left" Margin="31,194,0,0" VerticalAlignment="Top"/>
-        <local:WithdrawDeposit HorizontalAlignment="Left" Margin="387,35,0,0" VerticalAlignment="Top" Height="245" Width="287"/>
+        <GroupBox Header="Account Management" HorizontalAlignment="Left" Margin="382,10,0,0" VerticalAlignment="Top" Height="297" Width="318">
+            <local:WithdrawDeposit HorizontalAlignment="Left" VerticalAlignment="Top" Height="245" Width="287" Margin="6,5,0,0"/>
+        </GroupBox>
+        <GroupBox Header="Customer Creation" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" Height="101" Width="272">
+            <local:CreateCustomer HorizontalAlignment="Left" VerticalAlignment="Top" Margin="19,11,0,0"/>
+        </GroupBox>
+        <GroupBox Header="Account Creation" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Height="204" Width="350">
+            <local:CreateAccount HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,7,0,0"/>
+        </GroupBox>
     </Grid>
 </Window>

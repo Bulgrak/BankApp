@@ -19,7 +19,7 @@ namespace BankAppEx.Model
     {
 
         public long AccountNo { get; set; }
-        public double Balance { get; set; }
+        private double balance;
         private double interestRate;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,6 +40,16 @@ namespace BankAppEx.Model
             InterestRate = interestRate;
         }
 
+        public double Balance
+        {
+            get { return balance; }
+            set
+            {
+                balance = value;
+                OnPropertyChanged("Balance");
+            }
+        }
+
         public double InterestRate
         {
             get { return interestRate; }
@@ -53,7 +63,7 @@ namespace BankAppEx.Model
             if (Balance >= amount && amount > 0)
             {
                 Balance -= amount;
-                OnPropertyChanged("Balance");
+                //OnPropertyChanged("Balance");
             }
             else
             {
@@ -66,7 +76,7 @@ namespace BankAppEx.Model
             if (amount > 0)
             {
                 Balance += amount;
-                OnPropertyChanged("Balance");
+                //OnPropertyChanged("Balance");
             }
             else
             {
@@ -74,17 +84,10 @@ namespace BankAppEx.Model
             }
         }
 
-        public void AddInterestRate(double interestRate)
+        public void AddInterestRate()
         {
-            if (interestRate > 0)
-            {
-                InterestRate += interestRate;
-                OnPropertyChanged("InterestRate");
-            }
-            else
-            {
-                throw new InvalidIncrementToInterestRate();            
-            }
+                Balance += (Balance/100)*InterestRate;
+                //OnPropertyChanged("Balance");
         }
     }
 }

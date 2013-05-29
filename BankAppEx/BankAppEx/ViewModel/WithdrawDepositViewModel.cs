@@ -157,9 +157,9 @@ namespace BankAppEx.ViewModel
 
         public void AddInterestRate(object o)
         {
-            selectedAccount.AddInterestRate(Convert.ToDouble(o));
+            selectedAccount.AddInterestRate();
         }
-        
+
 
 
         public static WithdrawDepositViewModel Instance
@@ -171,7 +171,7 @@ namespace BankAppEx.ViewModel
                 return instance;
             }
         }
-        
+
         public void AddCustomer(object o)
         {
             Customers.Add(new Customer(o.ToString()));

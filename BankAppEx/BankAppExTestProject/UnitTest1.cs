@@ -98,6 +98,12 @@ namespace BankAppExTestProject
             double actual = a.Balance;
             Assert.AreEqual(expected, actual, 0);
         }
+
+        [TestMethod]
+        public void TestDespositI1()
+        {
+
+        }
         #endregion
 
         //Black box tests
@@ -161,7 +167,7 @@ namespace BankAppExTestProject
             double balance = 1000.00;
             double interestRate = 0.5;
             Account a = new Account(accountNo, balance, interestRate);
-            a.AddInterestRate(0.5);
+            a.AddInterestRate();
             double expected = 1;
             double actual = a.InterestRate;
             Assert.AreEqual(expected, actual, 0);
